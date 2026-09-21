@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actividad Pokémon</title>
+    <link rel="stylesheet" href="{% static 'mi_app/style.css' %}">
+</head>
+<body>
+
+    <h1>Tabla de Pokémon</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo 1</th>
+                <th>Tipo 2</th>
+                <th>Vida</th>
+                <th>Ataque</th>
+                <th>Defensa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pokemon in pokemones %}
+            <tr>
+                <td>{{ pokemon.id }}</td>
+                <td>{{ pokemon.nombre }}</td>
+                <td>{{ pokemon.tipo_1 }}</td>
+                <td>{{ pokemon.tipo_2|default:"-" }}</td>
+                <td>{{ pokemon.vida }}</td>
+                <td>{{ pokemon.ataque }}</td>
+                <td>{{ pokemon.defensa }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No hay datos registrados aún.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
