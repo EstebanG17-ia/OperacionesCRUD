@@ -1,33 +1,36 @@
-/* Estilos básicos para la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    color: #333;
+main {
+    flex: 1;
 }
 
-/* Estilos básicos para la tabla */
-table {
-    margin: 0 auto; /* Centrar la tabla */
-    border-collapse: collapse;
-    width: 80%;
-    background-color: #ffffff;
+.navbar-brand {
+    font-weight: bold;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
+.card {
+    border: none;
+    border-radius: 10px;
 }
 
-th {
-    background-color: #3498db;
-    color: white;
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.btn {
+    border-radius: 6px;
+}
+
+footer {
+    margin-top: auto;
 }

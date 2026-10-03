@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import Pokemon
+from .models import Producto
 
-@admin.register(Pokemon)
-class PokemonAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre', 'tipo_1', 'tipo_2', 'vida', 'ataque', 'defensa')
+
+@admin.register(Producto)
+class ProductoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nombre', 'precio', 'stock', 'fecha_registro')
+    search_fields = ('nombre',)
+    list_filter = ('fecha_registro',)

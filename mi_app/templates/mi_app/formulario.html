@@ -1,0 +1,71 @@
+{% extends 'mi_app/base.html' %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7 col-md-9">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">{{ titulo }}</h4>
+            </div>
+
+            <div class="card-body">
+                <form method="POST" id="formProducto">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">
+                            Nombre del producto *
+                        </label>
+                        <input type="text" name="nombre" id="nombre"
+                               class="form-control" maxlength="100"
+                               value="{{ producto.nombre|default:'' }}"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">
+                            Descripción
+                        </label>
+                        <textarea name="descripcion" id="descripcion"
+                                  class="form-control" rows="3">{{ producto.descripcion|default:'' }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">
+                            Precio *
+                        </label>
+                        <input type="number" name="precio" id="precio"
+                               class="form-control" step="0.01" min="0"
+                               value="{{ producto.precio|default:'' }}"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="stock" class="form-label">
+                            Stock *
+                        </label>
+                        <input type="number" name="stock" id="stock"
+                               class="form-control" step="1" min="0"
+                               value="{{ producto.stock|default:'' }}"
+                               required>
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-end">
+                        <a href="{% url 'inicio' %}"
+                           class="btn btn-secondary">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar producto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
